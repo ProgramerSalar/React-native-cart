@@ -1,41 +1,52 @@
 import { View, Text, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
-import { Button, TextInput } from 'react-native-paper'
+import React,{useState} from 'react'
+import { TextInput, Button } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 
 const SignUp = () => {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [passwod, setPassword] = useState("")
-    const navigate = useNavigation()
-    
-
-
+    const [password, setPassword] = useState("")
+    const navigation = useNavigation()
 
   return (
     <View style={{
+        backgroundColor:'grey',
         flex:1,
-        backgroundColor:'green',
-        padding:10,
-        margin:10
+        padding:10
     }}>
-      <View>
-        <TextInput placeholder='Name' value={name} onChangeText={setName}/>
-        <TextInput placeholder='Email' value={email} onChangeText={setEmail}/>
-        <TextInput placeholder='Password' value={passwod} onChangeText={setPassword}/>
 
-      </View>
+        <View style={{
+            padding:10,
+            margin:10
+        }}>
+            <TextInput placeholder='Name' style={{
+                margin:10
+            }} value={name} onChangeText={setName} />
+            <TextInput placeholder='Email' style={{
+                margin:10
+            }} value={email} onChangeText={setEmail} />
+            <TextInput placeholder='Password' style={{
+                margin:10
+            }} value={password} onChangeText={setPassword} />
+        </View>
 
-      <Button style={{
-        backgroundColor:'blue',
-        padding:10,
-        margin:10
-      }}>Sign UP</Button>
+       
 
-      <TouchableOpacity onPress={() => navigate.navigate('login')}>
-        <Text>Login</Text>
-      </TouchableOpacity>
+        <TouchableOpacity>
+            <Button style={{
+                backgroundColor:'blue'
+            }}>Sign Up</Button>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate('login')} style={{
+            left:300,
+            top:10
+        }} >
+            <Text>Login?</Text>
+        </TouchableOpacity>
+      
     </View>
   )
 }

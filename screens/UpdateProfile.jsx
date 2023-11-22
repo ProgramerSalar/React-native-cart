@@ -1,30 +1,35 @@
-import { View, Text } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
+import React,{useState} from 'react'
 import { Button, TextInput } from 'react-native-paper'
 
 const UpdateProfile = () => {
-
-  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  
+  const [name, setName] = useState("")
 
   return (
     <View style={{
       backgroundColor:'green',
-      flex:1,
-      padding:10,
-      margin:10
+      flex:1
     }}>
-      <TextInput placeholder='Name' value={name} onChangeText={setName} />
-      <TextInput placeholder='Email' value={email} onChangeText={setEmail} />
-
-      <Button style={{
+      <View style={{
         padding:10,
-        backgroundColor:'blue',
         margin:10
-      }}>Update Profile</Button>
-    </View>
+      }}>
+        <TextInput placeholder='Name' value={name} onChangeText={setName} />
+        <TextInput placeholder='Email' value={email} onChangeText={setEmail} />
+
+      
+      </View>
+      <TouchableOpacity >
+        <Button style={{
+          backgroundColor:'blue',
+          borderRadius:10,
+          padding:5,
+          margin:10
+        }}>Update Profile</Button>
+      </TouchableOpacity>
     
+    </View>
   )
 }
 

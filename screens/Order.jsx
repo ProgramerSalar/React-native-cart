@@ -1,49 +1,66 @@
 import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
-import OrderItem from '../component/OrderItem'
+import OrderItem from '../components/OrderItem'
+
+const Orders = [
+    {
+        _id:'idnidaer',
+        shippingInfo:{
+            address:'sanjay colony',
+            distic:'fridabad',
+            state:'haryana',
+            country:'india'
+        },
+        created_date:'12-01-3000',
+        orderStatus:'complete',
+        paymentMethod:'COD',
+        TotalAmount:1200
+    },
+    {
+        _id:'idnidaefdrer',
+        shippingInfo:{
+            address:'sanjay colony',
+            distic:'fridabad',
+            state:'haryana',
+            country:'india'
+        },
+        created_date:'12-01-3000',
+        orderStatus:'complete',
+        paymentMethod:'COD',
+        TotalAmount:1200
+    },
+
+]
+
 
 const Order = () => {
-
-  const orders = [
-    {
-      _id:"dfeina",
-      shippingInfo:{
-        address:"donre",
-        city:"di;aierea",
-        country:"doinre",
-        pinCode:32432
-      },
-      createdAt:'12-10-2000',
-      orderStatus:'Process',
-      paymentMethod:'online',
-      totalAmount:1200
-    }
-  ]
   return (
     <View style={{
-      flex:1,
-      backgroundColor:'green'
+        backgroundColor:'green',
+        flex:1
     }}>
+
       <ScrollView>
         {
-          orders.map((item, index) => (
-            <OrderItem
-            key={item._id}
-            id={item._id}
-            index={index}
-            address={`${item.shippingInfo.address},${item.shippingInfo.city},${item.shippingInfo.country}, ${item.shippingInfo.pinCode}`}
-            
-            
-            />
-          ))
+            Orders.map((item, index) => (
+                <OrderItem
+                key={item._id}
+                id={item._id}
+                address={item.shippingInfo.address}
+                distic={item.shippingInfo.distic}
+                state={item.shippingInfo.state}
+                country={item.shippingInfo.country}
+                created_date={item.created_date}
+                orderStatus={item.orderStatus}
+                paymentMethod={item.paymentMethod}
+                TotalAmount={item.TotalAmount}
+
+                />
+            ))
         }
-
-
       </ScrollView>
 
-
-
-     
+    
     </View>
   )
 }
